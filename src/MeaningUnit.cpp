@@ -7,9 +7,8 @@
 #include <iostream>
 #include "MeaningUnit.h"
 
-MeaningUnit::MeaningUnit(std::string latinInput, std::string englishInput, std::string meterInput)
+MeaningUnit::MeaningUnit(std::string latinInput, std::string englishInput)
 {
 	latin = latinInput;
 	english = englishInput;
-	meter = meterInput;
 }

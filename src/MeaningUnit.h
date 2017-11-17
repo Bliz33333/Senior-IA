@@ -13,8 +13,7 @@ class MeaningUnit
 {
 public:
 	std::string latin, english;
-	std::string meter;
-	MeaningUnit(std::string latinInput, std::string englishInput, std::string meterInput);
+	MeaningUnit(std::string latinInput, std::string englishInput);
 };
 
 

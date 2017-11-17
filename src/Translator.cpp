@@ -5,15 +5,26 @@
  *      Author: s105308
  */
 #include <iostream>
-using namespace std;
+#include "MeaningUnit.h"
+#include <vector>
+#include "Translator.h"
 
-//class Translator
-//{
-//public:
-//	MeaningUnit[] text;
-//	Translator()
-//	{
-//
-//	}
-//};
+Translator::Translator(std::vector<MeaningUnit> t, std::string l, std::string e)
+{
+	text = t;
+	DAL = l;
+	DAE = e;
+}
+
+void Translator::nextLatin()
+{
+	counter++;
+	DAL += "\n\n" + text[counter].latin;
+}
+
+void Translator::nextEnglish()
+{
+	counter++;
+	DAE += "\n\n" + text[counter].english;
+}
 
