@@ -15,7 +15,7 @@ class PoeticDevice
 public:
 	int count;
 	std::string type, description;
-	PoeticDevice(int c, std::string t, std::string d = "");
+	PoeticDevice(int c, std::string t, std::string d);
 };
 
 #endif /* SRC_POETICDEVICE_H_ */

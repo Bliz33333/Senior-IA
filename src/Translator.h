@@ -19,8 +19,9 @@ public:
 	std::vector<MeaningUnit> text;
 	std::string DAL;
 	std::string DAE;
-	int counter = -1;
-	Translator(std::vector<MeaningUnit> t, std::string l, std::string);
+	int counter;
+	Translator(std::vector<MeaningUnit> t);
+	Translator();
 	void nextLatin();
 	void nextEnglish();
 };

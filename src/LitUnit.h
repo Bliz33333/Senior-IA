@@ -16,8 +16,8 @@
 class LitUnit
 {
 public:
-	Translator translator;
-	std::vector<PoeticDevice> devices;
+	Translator translator = Translator();
+	std::vector<PoeticDevice> devices = std::vector<PoeticDevice>();
 	std::string author, meter;
 	LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m, Translator t);
 };

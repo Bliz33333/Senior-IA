@@ -9,11 +9,20 @@
 #include <vector>
 #include "Translator.h"
 
-Translator::Translator(std::vector<MeaningUnit> t, std::string l, std::string e)
+Translator::Translator(std::vector<MeaningUnit> t)
 {
 	text = t;
-	DAL = l;
-	DAE = e;
+	DAL = "";
+	DAE = "";
+	counter = -1;
+}
+
+Translator::Translator()
+{
+	text = std::vector<MeaningUnit>();
+	DAL = "";
+	DAE= "";
+	counter = -1;
 }
 
 void Translator::nextLatin()
