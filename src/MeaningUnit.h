@@ -14,6 +14,7 @@ class MeaningUnit
 public:
 	std::string latin, english;
 	MeaningUnit(std::string latinInput, std::string englishInput);
+	std::string intoString();
 };
 
 

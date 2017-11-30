@@ -20,6 +20,7 @@ public:
 	std::vector<PoeticDevice> devices = std::vector<PoeticDevice>();
 	std::string author, meter;
 	LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m, Translator t);
+	std::string intoString();
 };
 
 #endif /* SRC_LITUNIT_H_ */

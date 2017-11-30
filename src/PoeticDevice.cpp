@@ -13,3 +13,12 @@ PoeticDevice::PoeticDevice(int c, std::string t, std::string d = "")
 	type = t;
 	description = d;
 }
+
+std::string PoeticDevice::intoString()
+{
+	std::string s = "";
+
+	s += count + "\n" + type + "\n" + description + "\n";
+
+	return s;
+}

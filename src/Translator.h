@@ -24,6 +24,7 @@ public:
 	Translator();
 	void nextLatin();
 	void nextEnglish();
+	std::string intoString();
 };
 
 

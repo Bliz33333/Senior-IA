@@ -21,7 +21,7 @@ Translator::Translator()
 {
 	text = std::vector<MeaningUnit>();
 	DAL = "";
-	DAE= "";
+	DAE = "";
 	counter = -1;
 }
 
@@ -35,5 +35,17 @@ void Translator::nextEnglish()
 {
 	counter++;
 	DAE += "\n\n" + text[counter].english;
+}
+
+std::string Translator::intoString()
+{
+	std::string s = "";
+
+	for(unsigned int i = 0; i < text.size(); i++)
+	{
+		s += text.at(i).intoString() + "\n";
+	}
+
+	return s;
 }
 

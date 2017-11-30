@@ -16,6 +16,7 @@ public:
 	int count;
 	std::string type, description;
 	PoeticDevice(int c, std::string t, std::string d);
+	std::string intoString();
 };
 
 #endif /* SRC_POETICDEVICE_H_ */
