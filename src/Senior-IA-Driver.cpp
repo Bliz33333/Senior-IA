@@ -21,7 +21,7 @@ int main()
 {
 	if (!startupLit())
 	{
-		return -1;
+		return -3;
 	}
 
 	if (!startupStages())
