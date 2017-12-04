@@ -3,6 +3,7 @@
 #include "MeaningUnit.h"
 #include "PoeticDevice.h"
 #include "Translator.h"
+#include "GUI.h"
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -28,6 +29,7 @@ int main()
 		return -2;
 	}
 
+	WinMain(0,0,0,0);
 	//std::cout << IBmap.find("Heroides1")->second.intoString();
 
 	return 0;
@@ -51,9 +53,6 @@ bool startupLit()			//todo make the error bool work
 		numAP = std::stoi(line);
 	}
 
-	std::cout << numIB << "\n"; //todo remove
-	std::cout << numAP << "\n"; //todo remove
-
 	for (int i = 0; i < numIB; i++)
 	{
 		getline(infile, line);
@@ -72,11 +71,8 @@ bool startupLit()			//todo make the error bool work
 		getline(litfile, litline);
 		int numUnits = std::stoi(litline);
 
-//		std::vector<MeaningUnit> units = readInLines(meter, litfile, numUnits);
-//		Translator t = Translator(readInLines(meter, litfile, numUnits));
 		IBmap.insert(
-				{ title, LitUnit(readInDevices(title), author, meter,
-						Translator(readInLines(meter, litfile, numUnits))) });
+				{ title, LitUnit(readInDevices(title), author, meter, Translator(readInLines(meter, litfile, numUnits))) });
 	}
 	for (int i = 0; i < numAP; i++)
 	{
@@ -96,8 +92,6 @@ bool startupLit()			//todo make the error bool work
 		getline(litfile, litline);
 		int numUnits = std::stoi(litline);
 
-		//		std::vector<MeaningUnit> units = readInLines(meter, litfile, numUnits);
-		//		Translator t = Translator(readInLines(meter, litfile, numUnits));
 		APmap.insert(
 				{ title, LitUnit(readInDevices(title), author, meter,
 						Translator(readInLines(meter, litfile, numUnits))) });
@@ -123,15 +117,18 @@ std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, 
 		std::string latin;
 		for (int i = 0; i < numUnits; i++)
 		{
+			english = "";
+			latin = "";
+
 			getline(litfile, litline);
 			latin += litline;
 			getline(litfile, litline);
-			latin += litline;
+			latin += "\n" + litline;
 
 			getline(litfile, litline);
 			english += litline;
 			getline(litfile, litline);
-			english += litline;
+			english += +"\n" + litline;
 			getline(litfile, litline);
 			MeaningUnit m = MeaningUnit(latin, english);
 
@@ -139,12 +136,6 @@ std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, 
 		}
 
 	}
-
-	for(unsigned int i = 0; i < units.size(); i++) //todo remove
-	{
-		std::cout << units.at(i).intoString() + "\n";
-	}
-
 	return units;
 }
 
@@ -167,7 +158,7 @@ std::vector<PoeticDevice> readInDevices(std::string title)
 		std::string description = "";
 
 		getline(devfile, devline);
-		count = std::stoi(devline);
+		count = stoi(devline);
 
 		getline(devfile, devline);
 		type = devline;

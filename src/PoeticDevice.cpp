@@ -18,7 +18,9 @@ std::string PoeticDevice::intoString()
 {
 	std::string s = "";
 
-	s += count + "\n" + type + "\n" + description + "\n";
+	std::string temp = "";
+	temp = std::to_string(count);
 
+	s += temp + "\n" + type + "\n" + description + "\n";
 	return s;
 }
