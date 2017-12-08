@@ -28,10 +28,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	startupLit(IBmap, APmap);
 	startupStages();
 
-//	std::cout << "test"; //todo remove
 //	std::cout << IBmap.find("ProCaelio35-40")->second.translator.intoString();
-
-
 
 	WNDCLASSEX wc;
 	HWND hwnd;
@@ -71,19 +68,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		MB_ICONEXCLAMATION | MB_OK);
 		return 0;
 	}
-//
-//	HWND hwndButton = CreateWindow(
-//	    "BUTTON",  // Predefined class; Unicode assumed
-//	    "Go",      // Button text
-//	    WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,  // Styles
-//	    10,         // x position
-//	    10,         // y position
-//	    100,        // Button width
-//	    100,        // Button height
-//	    hwnd,     // Parent window
-//	    NULL,       // No menu.
-//	    (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE),
-//	    NULL);
+
+	HWND hwndButton = CreateWindow(
+			"BUTTON",  // Predefined class; Unicode assumed
+			"Go",// Button text
+			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,// Styles
+			10,// x position
+			10,// y position
+			100,// Button width
+			100,// Button height
+			hwnd,// Parent window
+			NULL,// No menu.
+			(HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE),
+			NULL);
 
 	ShowWindow(hwnd, nCmdShow);
 	UpdateWindow(hwnd);
@@ -96,5 +93,4 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	}
 	return Msg.wParam;
 }
-
 
