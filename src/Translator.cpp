@@ -14,7 +14,8 @@ Translator::Translator(std::vector<MeaningUnit> t)
 	text = t;
 	DAL = "";
 	DAE = "";
-	counter = -1;
+	englishCounter = -1;
+	latinCounter = -1;
 }
 
 Translator::Translator()
@@ -22,19 +23,37 @@ Translator::Translator()
 	text = std::vector<MeaningUnit>();
 	DAL = "";
 	DAE = "";
-	counter = -1;
+	englishCounter = -1;
+	latinCounter = -1;
 }
 
 void Translator::nextLatin()
 {
-	counter++;
-	DAL += "\n\n" + text[counter].latin;
+	latinCounter++;
+	text[latinCounter].latinActive = true;
+	draw();
 }
 
 void Translator::nextEnglish()
 {
-	counter++;
-	DAE += "\n\n" + text[counter].english;
+	englishCounter++;
+	text[englishCounter].englishActive = true;
+	draw();
+}
+
+void Translator::draw()
+{
+	for(int i = 0; i < text.size(); i++)
+	{
+		if(text[i].latinActive)
+		{
+			DAL += text.at(i).latin + "\n";
+		}
+		if(text[i].englishActive)
+		{
+			DAE += text.at(i).english + "\n";
+		}
+	}
 }
 
 std::string Translator::intoString()

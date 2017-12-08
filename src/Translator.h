@@ -19,10 +19,11 @@ public:
 	std::vector<MeaningUnit> text;
 	std::string DAL;
 	std::string DAE;
-	int counter;
+	int latinCounter, englishCounter;
 	Translator(std::vector<MeaningUnit> t);
 	Translator();
 	void nextLatin();
+	void draw();
 	void nextEnglish();
 	std::string intoString();
 };

@@ -13,6 +13,7 @@ class MeaningUnit
 {
 public:
 	std::string latin, english;
+	bool latinActive, englishActive;
 	MeaningUnit(std::string latinInput, std::string englishInput);
 	std::string intoString();
 };
