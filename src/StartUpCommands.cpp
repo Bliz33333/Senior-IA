@@ -7,13 +7,11 @@
 
 #include "StartUpCommands.h"
 
-bool startupStages() //todo finish
-{
-	return true;
-}
+void startupStages() //todo finish
+{}
 
-bool startupLit(std::map<std::string, class LitUnit>& IBmap,
-		std::map<std::string, class LitUnit>& APmap)//todo make the error bool work
+void startupLit(std::map<std::string, class LitUnit>& IBmap,
+		std::map<std::string, class LitUnit>& APmap)
 {
 	int numIB = 0;
 	int numAP = 0;
@@ -75,7 +73,6 @@ bool startupLit(std::map<std::string, class LitUnit>& IBmap,
 				{ title, LitUnit(readInDevices(title), author, meter,
 						Translator(readInLines(meter, litfile, numUnits))) });
 	}
-	return true;
 }
 
 std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, //todo other meters

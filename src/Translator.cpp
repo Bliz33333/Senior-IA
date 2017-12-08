@@ -43,7 +43,7 @@ void Translator::nextEnglish()
 
 void Translator::draw()
 {
-	for(int i = 0; i < text.size(); i++)
+	for(unsigned int i = 0; i < text.size(); i++)
 	{
 		if(text[i].latinActive)
 		{

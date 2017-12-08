@@ -19,8 +19,8 @@
 #include <vector>
 
 
-bool startupLit(std::map<std::string, class LitUnit>&, std::map<std::string, class LitUnit>&);
-bool startupStages();
+void startupLit(std::map<std::string, class LitUnit>&, std::map<std::string, class LitUnit>&);
+void startupStages();
 std::vector<MeaningUnit> readInLines(std::string, std::ifstream&, int);
 std::vector<PoeticDevice> readInDevices(std::string);
 
