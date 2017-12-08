@@ -13,6 +13,7 @@
 #include "MeaningUnit.h"
 #include <vector>
 
+
 class Translator
 {
 public:
