@@ -1,9 +1,9 @@
 IB Computer Science Internal Assessment
 ==========================================================================
 Candidate Personal Code: xxxxx
-Session: May 201x
+Session: May 2018
 
-Project Name: xxxxx
+Project Name: IB Latin Study Tool
 
 Project Description: xxxxx
 
