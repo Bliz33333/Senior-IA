@@ -1,10 +1,3 @@
-/*
- * LitUnit.cpp
- *
- *  Created on: Nov 17, 2017
- *      Author: s105308
- */
-
 #include "LitUnit.h"
 
 LitUnit::LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m,
@@ -21,7 +14,7 @@ std::string LitUnit::intoString()
 	std::string s = "";
 
 	s += author + "\n" + meter + "\n";
-	for(unsigned int i = 0; i < devices.size(); i++)
+	for (unsigned int i = 0; i < devices.size(); i++)
 	{
 		s += devices.at(i).intoString() + "\n";
 	}

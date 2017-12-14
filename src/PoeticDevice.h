@@ -1,21 +1,42 @@
-/*
- * PoeticDevice.h
+/** \file PoeticDevice.h
+ *  \brief The header file for the PoeticDevice class.
  *
- *  Created on: Nov 17, 2017
- *      Author: s105308
+ */
+
+/** \file PoeticDevice.cpp
+ *  \brief The source code file for the PoeticDevice class.
+ *
  */
 
 #ifndef SRC_POETICDEVICE_H_
 #define SRC_POETICDEVICE_H_
 
+/**
+ *
+ */
 #include <string>
 
 class PoeticDevice
 {
 public:
+	/**
+	 *
+	 */
 	int count;
+
+	/**
+	 *
+	 */
 	std::string type, description;
+
+	/**
+	 *
+	 */
 	PoeticDevice(int c, std::string t, std::string d);
+
+	/**
+	 *
+	 */
 	std::string intoString();
 };
 
