@@ -1,6 +1,9 @@
 #include "StartUpCommands.h"
 #include <windows.h>
 
+//todo remove
+#include <iostream>
+
 std::map<std::string, class LitUnit> IBmap;
 std::map<std::string, class LitUnit> APmap;
 const char g_szClassName[] = "myWindowClass";
@@ -28,7 +31,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	startupLit(IBmap, APmap);
 	startupStages();
 
-//	std::cout << IBmap.find("ProCaelio35-40")->second.translator.intoString();
+	std::cout << IBmap.find("ProCaelio35-40")->second.intoString();
 
 	WNDCLASSEX wc;
 	HWND hwnd;

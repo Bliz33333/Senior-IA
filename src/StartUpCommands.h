@@ -1,22 +1,20 @@
-/*
- * StartUpCommands.h
+/** \file StartUpCommands.h
+ *  \brief The header file for the code that contains several commands used by the driver during program startup.
  *
- *  Created on: Dec 6, 2017
- *      Author: s105308
+ */
+
+/** \file PoeticDevice.cpp
+ *  \brief The source code file that contains several commands used by the driver during program startup.
+ *
+ *  \see PoeticDevice
  */
 
 #ifndef SRC_STARTUPCOMMANDS_H_
 #define SRC_STARTUPCOMMANDS_H_
 
-#include "Senior-IA-Driver.h"
 #include "LitUnit.h"
-#include "MeaningUnit.h"
-#include "PoeticDevice.h"
-#include "Translator.h"
-#include <iostream>
 #include <fstream>
 #include <map>
-#include <vector>
 
 
 void startupLit(std::map<std::string, class LitUnit>&, std::map<std::string, class LitUnit>&);

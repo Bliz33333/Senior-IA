@@ -1,18 +1,27 @@
-/*
- * Translator.h
+/** \file Translator.h
+ *  \brief The header file for the Translator class.
  *
- *  Created on: Nov 17, 2017
- *      Author: s105308
+ *	\see Translator
+ */
+
+/** \file Translator.cpp
+ *  \brief The source code file for the Translator class.
+ *
+ *  \see Translator
  */
 
 #ifndef SRC_TRANSLATOR_H_
 #define SRC_TRANSLATOR_H_
 
-
-#include <iostream>
+/**
+ *
+ */
 #include "MeaningUnit.h"
-#include <vector>
 
+/**
+ *
+ */
+#include <vector>
 
 class Translator
 {

@@ -1,11 +1,13 @@
 /** \file PoeticDevice.h
  *  \brief The header file for the PoeticDevice class.
  *
+ *	\see PoeticDevice
  */
 
 /** \file PoeticDevice.cpp
  *  \brief The source code file for the PoeticDevice class.
  *
+ *  \see PoeticDevice
  */
 
 #ifndef SRC_POETICDEVICE_H_
