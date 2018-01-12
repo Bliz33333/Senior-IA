@@ -13,16 +13,8 @@
 #ifndef SRC_LITUNIT_H_
 #define SRC_LITUNIT_H_
 
-/** Inclusion of the PoeticDevice class because LitUnit stores and displays poetic devices.
- *  \see devices
- *  \see PoeticDevice.h
- */
 #include "PoeticDevice.h"
 
-/** Inclusion of the Translator class because Translator stores the Latin and its corresponding English.
- *  \see translator
- *  \see Translator.h
- */
 #include "Translator.h"
 
 /** \brief The object that holds information for a single piece of literature.
@@ -75,12 +67,12 @@ public:
 	 */
 	LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m, Translator t);
 
-	/** A method that converts the LitUnit into string.
+	/** A method that converts the LitUnit into a string.
 	 *
 	 *  The author and meter are saved on the first two lines of the string, then the PoeticDevices are saved to the next lines, then the Translator is saved. The PoeticDevices and Translator are converted to strings by thier own intoString() method.
 	 *
-	 *  \see Translator::intoString()
-	 *  \see PoeticDevice::intoString()
+	 *  \see std::string Translator::intoString()
+	 *  \see std::string PoeticDevice::intoString()
 	 */
 	std::string intoString();
 };

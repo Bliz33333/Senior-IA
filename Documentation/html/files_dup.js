@@ -12,10 +12,11 @@ var files_dup =
     [ "PoeticDevice.h", "_poetic_device_8h.html", [
       [ "PoeticDevice", "class_poetic_device.html", "class_poetic_device" ]
     ] ],
-    [ "Senior-IA-Driver.cpp", "_senior-_i_a-_driver_8cpp_source.html", null ],
-    [ "Senior-IA-Driver.h", "_senior-_i_a-_driver_8h_source.html", null ],
-    [ "StartUpCommands.cpp", "_start_up_commands_8cpp_source.html", null ],
-    [ "StartUpCommands.h", "_start_up_commands_8h_source.html", null ],
-    [ "Translator.cpp", "_translator_8cpp_source.html", null ],
-    [ "Translator.h", "_translator_8h_source.html", null ]
+    [ "Senior-IA-Driver.cpp", "_senior-_i_a-_driver_8cpp.html", "_senior-_i_a-_driver_8cpp" ],
+    [ "StartUpCommands.cpp", "_start_up_commands_8cpp.html", "_start_up_commands_8cpp" ],
+    [ "StartUpCommands.h", "_start_up_commands_8h.html", "_start_up_commands_8h" ],
+    [ "Translator.cpp", "_translator_8cpp.html", null ],
+    [ "Translator.h", "_translator_8h.html", [
+      [ "Translator", "class_translator.html", "class_translator" ]
+    ] ]
 ];

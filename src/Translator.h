@@ -13,14 +13,8 @@
 #ifndef SRC_TRANSLATOR_H_
 #define SRC_TRANSLATOR_H_
 
-/**
- *
- */
 #include "MeaningUnit.h"
 
-/**
- *
- */
 #include <vector>
 
 class Translator
@@ -35,6 +29,13 @@ public:
 	void nextLatin();
 	void draw();
 	void nextEnglish();
+
+	/** \brief A method that converts the Translator into a string.
+	 *
+	 *  The methods creates the string by joining the result of calling the intoString() method for each MeaningUnit in the Translator.
+	 *
+	 *  \see std::string MeaningUnit::intoString()
+	 */
 	std::string intoString();
 };
 

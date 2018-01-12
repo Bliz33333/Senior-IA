@@ -1,12 +1,14 @@
 #include "StartUpCommands.h"
 #include <windows.h>
 
-//todo remove
-#include <iostream>
-
 std::map<std::string, class LitUnit> IBmap;
 std::map<std::string, class LitUnit> APmap;
 const char g_szClassName[] = "myWindowClass";
+
+//todo error handling
+//todo remove extra "see" commands
+//todo document hidden methods in startup commands
+
 
 // Step 4: the Window Procedure
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -30,8 +32,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 {
 	startupLit(IBmap, APmap);
 	startupStages();
-
-	std::cout << IBmap.find("ProCaelio35-40")->second.intoString();
 
 	WNDCLASSEX wc;
 	HWND hwnd;

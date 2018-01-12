@@ -13,9 +13,6 @@
 #ifndef SRC_MEANINGUNIT_H_
 #define SRC_MEANINGUNIT_H_
 
-/** Inclusion of the STD string class to hold the Latin and English, as well as for use by classes that depend on this file.
- *
- */
 #include <string>
 
 /**
@@ -39,8 +36,9 @@ public:
 	 */
 	MeaningUnit(std::string latinInput, std::string englishInput);
 
-	/**
+	/** \brief A method that converts the MeaningUnit into a string.
 	 *
+	 *  The methods creates the string by joining the latin string, a newline, the english string, and another newline.
 	 */
 	std::string intoString();
 };

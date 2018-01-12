@@ -7,74 +7,6 @@
 
 #include "StartUpCommands.h"
 
-void startupStages() //todo finish
-{}
-
-void startupLit(std::map<std::string, class LitUnit>& IBmap,
-		std::map<std::string, class LitUnit>& APmap)
-{
-	int numIB = 0;
-	int numAP = 0;
-
-	std::ifstream infile;
-	std::string line;
-
-	infile.open("data\\LitNames.txt", std::ios::out);
-
-	if (infile.is_open())
-	{
-		getline(infile, line);
-		numIB = std::stoi(line);
-		getline(infile, line);
-		numAP = std::stoi(line);
-	}
-
-	for (int i = 0; i < numIB; i++)
-	{
-		getline(infile, line);
-
-		std::ifstream litfile;
-		std::string litline;
-
-		std::string title = line;
-		litfile.open("data\\" + title + ".txt", std::ios::out);
-
-		getline(litfile, litline);
-		getline(litfile, litline);
-		std::string author = litline;
-		getline(litfile, litline);
-		std::string meter = litline;
-		getline(litfile, litline);
-		int numUnits = std::stoi(litline);
-
-		IBmap.insert(
-				{ title, LitUnit(readInDevices(title), author, meter,
-						Translator(readInLines(meter, litfile, numUnits))) });
-	}
-	for (int i = 0; i < numAP; i++)
-	{
-		getline(infile, line);
-
-		std::ifstream litfile;
-		std::string litline;
-
-		std::string title = line;
-		litfile.open("data\\" + title + ".txt", std::ios::out);
-
-		getline(litfile, litline);
-		getline(litfile, litline);
-		std::string author = litline;
-		getline(litfile, litline);
-		std::string meter = litline;
-		getline(litfile, litline);
-		int numUnits = std::stoi(litline);
-
-		APmap.insert(
-				{ title, LitUnit(readInDevices(title), author, meter,
-						Translator(readInLines(meter, litfile, numUnits))) });
-	}
-}
-
 std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, //todo other meters
 		int numUnits)
 {
@@ -165,4 +97,72 @@ std::vector<PoeticDevice> readInDevices(std::string title)
 
 	return p;
 }
+
+void startupLit(std::map<std::string, class LitUnit>& IBmap,
+		std::map<std::string, class LitUnit>& APmap)
+{
+	int numIB = 0;
+	int numAP = 0;
+
+	std::ifstream infile;
+	std::string line;
+
+	infile.open("data\\LitNames.txt", std::ios::out);
+
+	if (infile.is_open())
+	{
+		getline(infile, line);
+		numIB = std::stoi(line);
+		getline(infile, line);
+		numAP = std::stoi(line);
+	}
+
+	for (int i = 0; i < numIB; i++)
+	{
+		getline(infile, line);
+
+		std::ifstream litfile;
+		std::string litline;
+
+		std::string title = line;
+		litfile.open("data\\" + title + ".txt", std::ios::out);
+
+		getline(litfile, litline);
+		getline(litfile, litline);
+		std::string author = litline;
+		getline(litfile, litline);
+		std::string meter = litline;
+		getline(litfile, litline);
+		int numUnits = std::stoi(litline);
+
+		IBmap.insert(
+				{ title, LitUnit(readInDevices(title), author, meter,
+						Translator(readInLines(meter, litfile, numUnits))) });
+	}
+	for (int i = 0; i < numAP; i++)
+	{
+		getline(infile, line);
+
+		std::ifstream litfile;
+		std::string litline;
+
+		std::string title = line;
+		litfile.open("data\\" + title + ".txt", std::ios::out);
+
+		getline(litfile, litline);
+		getline(litfile, litline);
+		std::string author = litline;
+		getline(litfile, litline);
+		std::string meter = litline;
+		getline(litfile, litline);
+		int numUnits = std::stoi(litline);
+
+		APmap.insert(
+				{ title, LitUnit(readInDevices(title), author, meter,
+						Translator(readInLines(meter, litfile, numUnits))) });
+	}
+}
+
+void startupStages() //todo finish
+{}
 
