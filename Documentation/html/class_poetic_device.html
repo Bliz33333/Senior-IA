@@ -71,6 +71,9 @@ $(document).ready(function(){initNavTree('class_poetic_device.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>The class that stores a poetic device of a literature.  
+ <a href="class_poetic_device.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -78,7 +81,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6aa702978b5e0594504722d956ea40eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_poetic_device.html#a6aa702978b5e0594504722d956ea40eb">PoeticDevice</a> (int c, std::string t, std::string d)</td></tr>
 <tr class="separator:a6aa702978b5e0594504722d956ea40eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bfcebcd7af2335375efc62152db8359"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_poetic_device.html#a9bfcebcd7af2335375efc62152db8359">intoString</a> ()</td></tr>
-<tr class="memdesc:a9bfcebcd7af2335375efc62152db8359"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method that converts the <a class="el" href="class_poetic_device.html">PoeticDevice</a> into a string.  <a href="#a9bfcebcd7af2335375efc62152db8359">More...</a><br /></td></tr>
+<tr class="memdesc:a9bfcebcd7af2335375efc62152db8359"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method that converts the <a class="el" href="class_poetic_device.html" title="The class that stores a poetic device of a literature. ">PoeticDevice</a> into a string.  <a href="#a9bfcebcd7af2335375efc62152db8359">More...</a><br /></td></tr>
 <tr class="separator:a9bfcebcd7af2335375efc62152db8359"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -91,8 +94,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ae0a17ad6cd0d005772fe8a9c073f7ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_poetic_device_8h_source.html#l00018">18</a> of file <a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>.</p>
+<div class="textblock"><p>The class that stores a poetic device of a literature. </p>
+<p>Each PoetcDevice object holds one poetic device, each device is defined by where it is, its type, and its description. Each literature has an array of PoeticDevices. </p>
+
+<p class="definition">Definition at line <a class="el" href="_poetic_device_8h_source.html#l00023">23</a> of file <a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6aa702978b5e0594504722d956ea40eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6aa702978b5e0594504722d956ea40eb">&#9670;&nbsp;</a></span>PoeticDevice()</h2>
@@ -125,10 +130,27 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The constructor that makes a <a class="el" href="class_poetic_device.html" title="The class that stores a poetic device of a literature. ">PoeticDevice</a>.</p>
+<p>This constructor does not do anything other than copy the given objects to the corresponding member objects of the <a class="el" href="class_poetic_device.html" title="The class that stores a poetic device of a literature. ">PoeticDevice</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The int that is copied to count. </td></tr>
+    <tr><td class="paramname">t</td><td>The string that is copied to type. </td></tr>
+    <tr><td class="paramname">d</td><td>The string that is copied to description.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>devices </dd>
+<dd>
+author </dd>
+<dd>
+meter </dd>
+<dd>
+translator </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_poetic_device_8cpp_source.html#l00010">10</a> of file <a class="el" href="_poetic_device_8cpp_source.html">PoeticDevice.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_poetic_device_8h_source.html#l00024">count</a>, <a class="el" href="_poetic_device_8h_source.html#l00029">description</a>, and <a class="el" href="_poetic_device_8h_source.html#l00029">type</a>.</p>
+<p class="reference">References <a class="el" href="_poetic_device_8h_source.html#l00029">count</a>, <a class="el" href="_poetic_device_8h_source.html#l00039">description</a>, and <a class="el" href="_poetic_device_8h_source.html#l00034">type</a>.</p>
 
 </div>
 </div>
@@ -148,12 +170,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A method that converts the <a class="el" href="class_poetic_device.html">PoeticDevice</a> into a string. </p>
+<p>A method that converts the <a class="el" href="class_poetic_device.html" title="The class that stores a poetic device of a literature. ">PoeticDevice</a> into a string. </p>
 <p>The methods creates the string by joining the count, a newline, the type string, a newline, the description string, and another newline. </p>
 
 <p class="definition">Definition at line <a class="el" href="_poetic_device_8cpp_source.html#l00017">17</a> of file <a class="el" href="_poetic_device_8cpp_source.html">PoeticDevice.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_poetic_device_8h_source.html#l00024">count</a>, <a class="el" href="_poetic_device_8h_source.html#l00029">description</a>, and <a class="el" href="_poetic_device_8h_source.html#l00029">type</a>.</p>
+<p class="reference">References <a class="el" href="_poetic_device_8h_source.html#l00029">count</a>, <a class="el" href="_poetic_device_8h_source.html#l00039">description</a>, and <a class="el" href="_poetic_device_8h_source.html#l00034">type</a>.</p>
 
 </div>
 </div>
@@ -169,8 +191,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>An integer that stores the count of the <a class="el" href="class_meaning_unit.html">MeaningUnit</a> this <a class="el" href="class_poetic_device.html" title="The class that stores a poetic device of a literature. ">PoeticDevice</a> appears in. </p>
 
-<p class="definition">Definition at line <a class="el" href="_poetic_device_8h_source.html#l00024">24</a> of file <a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_poetic_device_8h_source.html#l00029">29</a> of file <a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_poetic_device_8cpp_source.html#l00017">intoString()</a>, and <a class="el" href="_poetic_device_8cpp_source.html#l00010">PoeticDevice()</a>.</p>
 
@@ -187,8 +210,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This string stores a description of the poetic device. </p>
 
-<p class="definition">Definition at line <a class="el" href="_poetic_device_8h_source.html#l00029">29</a> of file <a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_poetic_device_8h_source.html#l00039">39</a> of file <a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_poetic_device_8cpp_source.html#l00017">intoString()</a>, and <a class="el" href="_poetic_device_8cpp_source.html#l00010">PoeticDevice()</a>.</p>
 
@@ -205,8 +229,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This string stores the type of the poetic device (ex. metaphor, allusion, etc.) </p>
 
-<p class="definition">Definition at line <a class="el" href="_poetic_device_8h_source.html#l00029">29</a> of file <a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_poetic_device_8h_source.html#l00034">34</a> of file <a class="el" href="_poetic_device_8h_source.html">PoeticDevice.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_poetic_device_8cpp_source.html#l00017">intoString()</a>, and <a class="el" href="_poetic_device_8cpp_source.html#l00010">PoeticDevice()</a>.</p>
 

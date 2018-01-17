@@ -17,17 +17,60 @@
 
 #include <vector>
 
+/**
+ *
+ */
 class Translator
 {
 public:
+	/**
+	 *
+	 */
 	std::vector<MeaningUnit> text;
+
+	/**
+	 *
+	 */
 	std::string DAL;
+
+	/**
+	 *
+	 */
 	std::string DAE;
-	int latinCounter, englishCounter;
+
+	/**
+	 *
+	 */
+	int latinCounter;
+
+	/**
+	 *
+	 */
+	int englishCounter;
+
+	/**
+	 *
+	 */
 	Translator(std::vector<MeaningUnit> t);
+
+	/**
+	 *
+	 */
 	Translator();
+
+	/**
+	 *
+	 */
 	void nextLatin();
+
+	/**
+	 *
+	 */
 	void draw();
+
+	/**
+	 *
+	 */
 	void nextEnglish();
 
 	/** \brief A method that converts the Translator into a string.

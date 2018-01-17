@@ -77,6 +77,8 @@ std::vector<PoeticDevice> readInDevices(std::string title)
 	getline(devfile, devline);
 	int numDevices = std::stoi(devline);
 
+	getline(devfile, devline);
+
 	for (int i = 0; i < numDevices; i++)
 	{
 		int count = 0;
@@ -93,6 +95,8 @@ std::vector<PoeticDevice> readInDevices(std::string title)
 		description = devline;
 
 		p.push_back(PoeticDevice(count, type, description));
+
+		getline(devfile, devline);
 	}
 
 	return p;

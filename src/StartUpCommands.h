@@ -12,29 +12,35 @@
  *  \brief The driver that creates the UI, starts up the program, and acts as the main loop.
  */
 
-/** \file [title].txt
- *  \verbinclude [title].txt
+/*
+ * todo not included in overall file list
+ */
+/** \file title.txt
  *  \brief The file that contains information about the literature names title.
  *
- *  Each literature his its own [title].txt file with the [title] replaced by the title of the file. The file contains the title (again) in the first line, the author in the second, the meter in the third, and the number of MeaningUnits in the fourth. After a blank line, the first MeaningUnit starts with the Latin, then the English. There is then another blank line before the second MeaningUnit; this pattern continues till the end.
+ *  Each literature his its own title.txt file with the title replaced by the title of the file. The file contains the title (again) in the first line, the author in the second, the meter in the third, and the number of MeaningUnits in the fourth. After a blank line, the first MeaningUnit starts with the Latin, then the English. There is then another blank line before the second MeaningUnit; this pattern continues till the end.
+ *  Formatted as below:
+ *  \verbinclude title.txt
  */
 
-/** \file [title]PD.txt
- *  \verbinclude [title]PD.txt
+/** \file titlePD.txt
  *  \brief The file that contain literary devices for a piece of literature.
  *
- *  Each literature his its own [title]PD.txt file with the [title] replaced by the title of the file. The file contains the number of poetic devices in the first line, and then the poetic device information. Each poetic device takes up 3 lines in the file: it has the number of the MeaningUnit where it appears in the first line, the type of poetic device it is in the second line, and the description in the third line. There are no blank spaces.
- *
+ *  Each literature his its own titlePD.txt file with the title replaced by the title of the file. The file contains the number of poetic devices in the first line, and then the poetic device information. Each poetic device takes up 3 lines in the file: it has the number of the MeaningUnit where it appears in the first line, the type of poetic device it is in the second line, and the description in the third line. There are no blank spaces.
+ *  Formatted as below:
+ *  \verbinclude titlePD.txt
  */
 
 /** \file LitNames.txt
- *  \verbinclude LitNames.txt
  *  \brief The file that contains how many and the names of the Literatures.
  *
- *  This file contains the number of IB literatures in the first line, the number of AP literatures in the seconds, then each IB literature title in its own line, and finally all the AP literature titles each in their own line. Each title corresponds to the name two files ([title].txt and [title]PD.txt) that contain info for the literature.
+ *  This file contains the number of IB literatures in the first line, the number of AP literatures in the seconds, then each IB literature title in its own line, and finally all the AP literature titles each in their own line. Each title corresponds to the name two files (title.txt and titlePD.txt) that contain info for the literature.
+ *  Formatted like below:
+ *  \verbinclude LitNames.txt
  *
- *  \see [title].txt
- *  \see [title]PD.txt
+ *  \see title.txt
+ *  \see titlePD.txt
+ *
  */
 
 #ifndef SRC_STARTUPCOMMANDS_H_

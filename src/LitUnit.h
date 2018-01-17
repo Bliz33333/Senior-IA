@@ -55,10 +55,10 @@ public:
 	 *
 	 *  This constructor does not do anything other than copy the given objects to the corresponding member objects of the LitUnit.
 	 *
-	 *  \param d The vector<PoeticDevices> that is used to create the devices object.
-	 *  \param a The string that holds the author.
-	 *  \param m The string that holds the meter.
-	 *  \param t The Translator for this section.
+	 *  \param d The vector<PoeticDevices> that is copied to the devices object.
+	 *  \param a The string that is copied to author.
+	 *  \param m The string that is copied to meter.
+	 *  \param t The Translator for that is copied to translator.
 	 *
 	 *  \see devices
 	 *  \see author
