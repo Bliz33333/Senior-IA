@@ -15,6 +15,13 @@ Translator::Translator(std::vector<MeaningUnit> t)
 	latinCounter = -1;
 }
 
+void Translator::nextLatin()
+{
+	latinCounter++;
+	text[latinCounter].latinActive = true;
+	draw();
+}
+
 Translator::Translator()
 {
 	text = std::vector<MeaningUnit>();
@@ -22,13 +29,6 @@ Translator::Translator()
 	DAE = "";
 	englishCounter = -1;
 	latinCounter = -1;
-}
-
-void Translator::nextLatin()
-{
-	latinCounter++;
-	text[latinCounter].latinActive = true;
-	draw();
 }
 
 void Translator::nextEnglish()

@@ -24,34 +24,44 @@ class Translator
 {
 public:
 	/**
-	 *
+	 *  An object that stores all of the Latin and English of this Literature in order in the form of MeaningUnits.
 	 */
 	std::vector<MeaningUnit> text;
 
 	/**
+	 *  \brief Stands for "Display Area Latin", is the string containing Lain to be shown to the user.
 	 *
+	 *  As the user reads through the Literature, more and more of the Latin is added to this string. When the user resets the display, this string is cleared.
 	 */
 	std::string DAL;
 
 	/**
+	 *  \brief Stands for "Display Area English", is the string containing English to be shown to the user.
 	 *
+	 *  As the user reads through the Literature, more and more of the Latin is added to this string. When the user resets the display, this string is cleared.
 	 */
 	std::string DAE;
 
 	/**
-	 *
+	 *  Keeps track of which MeaningUnit's Latin the user is currently at.
 	 */
 	int latinCounter;
 
 	/**
-	 *
+	 *  Keeps track of which MeaningUnit's English the user is currently at.
 	 */
 	int englishCounter;
 
 	/**
+	 *  \brief Constructs a Translator from a MeaningUnit array.
 	 *
+	 *  The text objects is copies from the t parameter, DAE and DAL are set to blank (""), and englishCounter/latinCounter are set to -1.
 	 */
 	Translator(std::vector<MeaningUnit> t);
+
+	/*
+	 * todo needed? member initialization?
+	 */
 
 	/**
 	 *

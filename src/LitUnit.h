@@ -69,7 +69,7 @@ public:
 
 	/** A method that converts the LitUnit into a string.
 	 *
-	 *  The author and meter are saved on the first two lines of the string, then the PoeticDevices are saved to the next lines, then the Translator is saved. The PoeticDevices and Translator are converted to strings by thier own intoString() method.
+	 *  The author and meter are saved on the first two lines of the string, then the PoeticDevices are saved to the next lines, then the Translator is saved. The PoeticDevices and Translator are converted to strings by their own intoString() method.
 	 *
 	 *  \see std::string Translator::intoString()
 	 *  \see std::string PoeticDevice::intoString()
