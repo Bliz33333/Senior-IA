@@ -62,7 +62,7 @@ public:
 	/**
 	 *  \brief Advances the Latin that the user can read.
 	 *
-	 *  Increments latinCounter and
+	 *  Increments latinCounter and updates the DAL to show the next MeaningUnit's Latin (text.at(latinCounter).latin).
 	 */
 	void nextLatin();
 
