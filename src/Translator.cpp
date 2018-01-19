@@ -6,29 +6,13 @@
  */
 #include "Translator.h"
 
-Translator::Translator(std::vector<MeaningUnit> t)
-{
-	text = t;
-	DAL = "";
-	DAE = "";
-	englishCounter = -1;
-	latinCounter = -1;
-}
+Translator::Translator(std::vector<MeaningUnit> t) : text(t), DAL(""), DAE(""), englishCounter(-1), latinCounter(-1) {}
 
 void Translator::nextLatin()
 {
 	latinCounter++;
 	text[latinCounter].latinActive = true;
 	draw();
-}
-
-Translator::Translator()
-{
-	text = std::vector<MeaningUnit>();
-	DAL = "";
-	DAE = "";
-	englishCounter = -1;
-	latinCounter = -1;
 }
 
 void Translator::nextEnglish()
