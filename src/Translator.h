@@ -83,7 +83,4 @@ public:
 	std::string intoString();
 };
 
-
-
-
 #endif /* SRC_TRANSLATOR_H_ */

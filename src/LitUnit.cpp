@@ -1,7 +1,10 @@
 #include "LitUnit.h"
 
 LitUnit::LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m,
-		Translator t) : devices(d), author(a), meter(m), translator(t) {}
+		Translator t) :
+		devices(d), author(a), meter(m), translator(t)
+{
+}
 
 std::string LitUnit::intoString()
 {

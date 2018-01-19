@@ -7,7 +7,10 @@
 
 #include "PoeticDevice.h"
 
-PoeticDevice::PoeticDevice(int c, std::string t, std::string d = "") : count(c), type(t), description(d) {}
+PoeticDevice::PoeticDevice(int c, std::string t, std::string d = "") :
+		count(c), type(t), description(d)
+{
+}
 
 std::string PoeticDevice::intoString()
 {

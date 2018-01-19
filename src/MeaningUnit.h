@@ -43,6 +43,4 @@ public:
 	std::string intoString();
 };
 
-
-
 #endif /* SRC_MEANINGUNIT_H_ */

@@ -46,7 +46,6 @@
 #ifndef SRC_STARTUPCOMMANDS_H_
 #define SRC_STARTUPCOMMANDS_H_
 
-
 #include "LitUnit.h"
 
 #include <fstream>
@@ -61,12 +60,12 @@
  *  \param IBmap The map that holds all the IB literatures
  *  \param APmap The map that holds all the AP literatures
  */
-void startupLit(std::map<std::string, class LitUnit>& IBmap, std::map<std::string, class LitUnit>& APmap);
+void startupLit(std::map<std::string, class LitUnit>& IBmap,
+		std::map<std::string, class LitUnit>& APmap);
 
 /* todo finish
  *
  */
 void startupStages();
-
 
 #endif /* SRC_STARTUPCOMMANDS_H_ */

@@ -9,7 +9,6 @@ const char g_szClassName[] = "myWindowClass";
 //todo remove extra "see" commands
 //todo document hidden methods in startup commands
 
-
 // Step 4: the Window Procedure
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {

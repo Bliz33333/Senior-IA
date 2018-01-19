@@ -6,7 +6,10 @@
  */
 #include "Translator.h"
 
-Translator::Translator(std::vector<MeaningUnit> t) : text(t), DAL(""), DAE(""), englishCounter(-1), latinCounter(-1) {}
+Translator::Translator(std::vector<MeaningUnit> t) :
+		text(t), DAL(""), DAE(""), englishCounter(-1), latinCounter(-1)
+{
+}
 
 void Translator::nextLatin()
 {
@@ -24,13 +27,13 @@ void Translator::nextEnglish()
 
 void Translator::draw()
 {
-	for(unsigned int i = 0; i < text.size(); i++)
+	for (unsigned int i = 0; i < text.size(); i++)
 	{
-		if(text[i].latinActive)
+		if (text[i].latinActive)
 		{
 			DAL += text.at(i).latin + "\n";
 		}
-		if(text[i].englishActive)
+		if (text[i].englishActive)
 		{
 			DAE += text.at(i).english + "\n";
 		}
@@ -41,7 +44,7 @@ std::string Translator::intoString()
 {
 	std::string s = "";
 
-	for(unsigned int i = 0; i < text.size(); i++)
+	for (unsigned int i = 0; i < text.size(); i++)
 	{
 		s += text.at(i).intoString() + "\n";
 	}

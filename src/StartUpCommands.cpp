@@ -168,5 +168,6 @@ void startupLit(std::map<std::string, class LitUnit>& IBmap,
 }
 
 void startupStages() //todo finish
-{}
+{
+}
 

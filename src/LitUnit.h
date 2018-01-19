@@ -66,7 +66,8 @@ public:
 	 *  \see meter
 	 *  \see translator
 	 */
-	LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m, Translator t);
+	LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m,
+			Translator t);
 
 	/** A method that converts the LitUnit into a string.
 	 *
