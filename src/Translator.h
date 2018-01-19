@@ -18,7 +18,7 @@
 #include <vector>
 
 /**
- *
+ *  The object that deals with displaying and keeping track of the Latin/English for a literature.
  */
 class Translator
 {
@@ -55,19 +55,16 @@ public:
 	/**
 	 *  \brief Constructs a Translator from a MeaningUnit array.
 	 *
-	 *  The text objects is copies from the t parameter, DAE and DAL are set to blank (""), and englishCounter/latinCounter are set to -1.
+	 *  The text object is copied from the t parameter, DAE and DAL are set to blank (""), and englishCounter/latinCounter are set to -1.
 	 */
 	Translator(std::vector<MeaningUnit> t);
 
 	/**
+	 *  \brief Advances the Latin that the user can read.
 	 *
+	 *  Increments latinCounter and
 	 */
 	void nextLatin();
-
-	/**
-	 *
-	 */
-	void draw();
 
 	/**
 	 *

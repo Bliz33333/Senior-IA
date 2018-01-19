@@ -14,30 +14,13 @@ Translator::Translator(std::vector<MeaningUnit> t) :
 void Translator::nextLatin()
 {
 	latinCounter++;
-	text[latinCounter].latinActive = true;
-	draw();
+	DAL += text.at(latinCounter).latin + "\n";
 }
 
 void Translator::nextEnglish()
 {
-	englishCounter++;
-	text[englishCounter].englishActive = true;
-	draw();
-}
-
-void Translator::draw()
-{
-	for (unsigned int i = 0; i < text.size(); i++)
-	{
-		if (text[i].latinActive)
-		{
-			DAL += text.at(i).latin + "\n";
-		}
-		if (text[i].englishActive)
-		{
-			DAE += text.at(i).english + "\n";
-		}
-	}
+	latinCounter++;
+	DAL += text.at(latinCounter).latin + "\n";
 }
 
 std::string Translator::intoString()

@@ -8,8 +8,7 @@
 #include "MeaningUnit.h"
 
 MeaningUnit::MeaningUnit(std::string latinInput, std::string englishInput) :
-		latin(latinInput), english(englishInput), latinActive(false), englishActive(
-				false)
+		latin(latinInput), english(englishInput)
 {
 }
 

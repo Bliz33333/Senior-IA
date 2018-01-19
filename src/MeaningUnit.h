@@ -29,11 +29,6 @@ public:
 	/**
 	 *
 	 */
-	bool latinActive, englishActive;
-
-	/**
-	 *
-	 */
 	MeaningUnit(std::string latinInput, std::string englishInput);
 
 	/** \brief A method that converts the MeaningUnit into a string.
