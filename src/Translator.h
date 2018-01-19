@@ -43,14 +43,14 @@ public:
 	std::string DAE;
 
 	/**
-	 *  Keeps track of which MeaningUnit's Latin the user is currently at.
-	 */
-	int latinCounter;
-
-	/**
 	 *  Keeps track of which MeaningUnit's English the user is currently at.
 	 */
 	int englishCounter;
+
+	/**
+	 *  Keeps track of which MeaningUnit's Latin the user is currently at.
+	 */
+	int latinCounter;
 
 	/**
 	 *  \brief Constructs a Translator from a MeaningUnit array.
@@ -58,15 +58,6 @@ public:
 	 *  The text objects is copies from the t parameter, DAE and DAL are set to blank (""), and englishCounter/latinCounter are set to -1.
 	 */
 	Translator(std::vector<MeaningUnit> t);
-
-	/*
-	 * todo needed? member initialization?
-	 */
-
-	/**
-	 *
-	 */
-	Translator();
 
 	/**
 	 *

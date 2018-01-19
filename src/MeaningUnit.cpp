@@ -7,13 +7,7 @@
 #include <iostream>
 #include "MeaningUnit.h"
 
-MeaningUnit::MeaningUnit(std::string latinInput, std::string englishInput)
-{
-	latin = latinInput;
-	english = englishInput;
-	latinActive = false;
-	englishActive = false;
-}
+MeaningUnit::MeaningUnit(std::string latinInput, std::string englishInput) : latin(latinInput), english(englishInput), latinActive(false), englishActive(false) {}
 
 std::string MeaningUnit::intoString()
 {

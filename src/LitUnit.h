@@ -25,20 +25,13 @@
 class LitUnit
 {
 public:
-	/** A Translator that stores and tracks the Latin and English of the section.
-	 *
-	 *  The translator object stores all of the Latin as well as its translated English. It also tracks at what point in the section the user is reading at, and updates a string to show what the user needs to see.
-	 *  \see Translator.h
-	 *  \see Translator
-	 */
-	Translator translator = Translator();
 
 	/** A vector of PoeticDevices to hold the poetic devices of this section.
 	 *
 	 *  The devices object holds each poetic device and where it appears in this section. They are stored in order of appearance.
 	 *
 	 */
-	std::vector<PoeticDevice> devices = std::vector<PoeticDevice>();
+	std::vector<PoeticDevice> devices;
 
 	/** A string that holds the author of this literature section.
 	 *
@@ -50,6 +43,14 @@ public:
 	 *  If the literature is poetry, this string holds what meter the poetry is in. If it is prose, this string holds "prose".
 	 */
 	std::string meter;
+
+	/** A Translator that stores and tracks the Latin and English of the section.
+	 *
+	 *  The translator object stores all of the Latin as well as its translated English. It also tracks at what point in the section the user is reading at, and updates a string to show what the user needs to see.
+	 *  \see Translator.h
+	 *  \see Translator
+	 */
+	Translator translator;
 
 	/** The constructor that makes a LitUnit.
 	 *
