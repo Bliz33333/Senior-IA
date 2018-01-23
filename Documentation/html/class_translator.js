@@ -1,8 +1,6 @@
 var class_translator =
 [
     [ "Translator", "class_translator.html#a609972f732ac473cd7a688f2d6f3448a", null ],
-    [ "Translator", "class_translator.html#aa4dfde53a0baa33e93637f00fd0d0a5a", null ],
-    [ "draw", "class_translator.html#a438dbbe7430b3811385cbde2eb5779e5", null ],
     [ "intoString", "class_translator.html#a456cace5f942bb2f631da0125f82ae78", null ],
     [ "nextEnglish", "class_translator.html#a03c0c7e0df12b9379c5313da39353fee", null ],
     [ "nextLatin", "class_translator.html#a0858b3dfd7cd7acbf64e59d3681b77f1", null ],

@@ -6,8 +6,9 @@
  */
 
 #include "StartUpCommands.h"
+#include <iostream> //TODO remove
 
-std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, //todo other meters
+std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, //TODO other meters
 		int numUnits)
 {
 	std::vector<MeaningUnit> units;
@@ -165,6 +166,8 @@ void startupLit(std::map<std::string, class LitUnit>& IBmap,
 				{ title, LitUnit(readInDevices(title), author, meter,
 						Translator(readInLines(meter, litfile, numUnits))) });
 	}
+// TODO remove
+//	std::cout << IBmap.at("Elegies1.1").intoString();
 }
 
 void startupStages() //todo finish

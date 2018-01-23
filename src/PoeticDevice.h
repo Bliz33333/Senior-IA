@@ -24,21 +24,21 @@ class PoeticDevice
 {
 public:
 	/**
-	 *  An integer that stores the count of the MeaningUnit this PoeticDevice appears in.
+	 *  \brief An integer that stores the count of the MeaningUnit this PoeticDevice appears in.
 	 */
 	int count;
 
 	/**
-	 *  This string stores the type of the poetic device (ex. metaphor, allusion, etc.)
+	 *  \brief This string stores the type of the poetic device (ex. metaphor, allusion, etc.)
 	 */
 	std::string type;
 
 	/**
-	 *  This string stores a description of the poetic device.
+	 *  \brief This string stores a description of the poetic device.
 	 */
 	std::string description;
 
-	/** The constructor that makes a PoeticDevice.
+	/** \brief The constructor that makes a PoeticDevice.
 	 *
 	 *  This constructor does not do anything other than copy the given objects to the corresponding member objects of the PoeticDevice.
 	 *

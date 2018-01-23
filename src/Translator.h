@@ -18,13 +18,13 @@
 #include <vector>
 
 /**
- *  The object that deals with displaying and keeping track of the Latin/English for a literature.
+ *  \brief The object that deals with displaying and keeping track of the Latin/English for a literature.
  */
 class Translator
 {
 public:
 	/**
-	 *  An object that stores all of the Latin and English of this Literature in order in the form of MeaningUnits.
+	 *  \brief An object that stores all of the Latin and English of this Literature in order in the form of MeaningUnits.
 	 */
 	std::vector<MeaningUnit> text;
 
@@ -43,12 +43,12 @@ public:
 	std::string DAE;
 
 	/**
-	 *  Keeps track of which MeaningUnit's English the user is currently at.
+	 *  \brief Keeps track of which MeaningUnit's English the user is currently at.
 	 */
 	int englishCounter;
 
 	/**
-	 *  Keeps track of which MeaningUnit's Latin the user is currently at.
+	 *  \brief Keeps track of which MeaningUnit's Latin the user is currently at.
 	 */
 	int latinCounter;
 

@@ -26,25 +26,25 @@ class LitUnit
 {
 public:
 
-	/** A vector of PoeticDevices to hold the poetic devices of this section.
+	/** \brief A vector of PoeticDevices to hold the poetic devices of this section.
 	 *
 	 *  The devices object holds each poetic device and where it appears in this section. They are stored in order of appearance.
 	 *
 	 */
 	std::vector<PoeticDevice> devices;
 
-	/** A string that holds the author of this literature section.
+	/** \brief A string that holds the author of this literature section.
 	 *
 	 */
 	std::string author;
 
-	/** A string that holds the meter of this literature section.
+	/** \brief A string that holds the meter of this literature section.
 	 *
 	 *  If the literature is poetry, this string holds what meter the poetry is in. If it is prose, this string holds "prose".
 	 */
 	std::string meter;
 
-	/** A Translator that stores and tracks the Latin and English of the section.
+	/** \brief A Translator that stores and tracks the Latin and English of the section.
 	 *
 	 *  The translator object stores all of the Latin as well as its translated English. It also tracks at what point in the section the user is reading at, and updates a string to show what the user needs to see.
 	 *  \see Translator.h
@@ -52,7 +52,7 @@ public:
 	 */
 	Translator translator;
 
-	/** The constructor that makes a LitUnit.
+	/** \brief The constructor that makes a LitUnit.
 	 *
 	 *  This constructor does not do anything other than copy the given objects to the corresponding member objects of the LitUnit.
 	 *
@@ -69,7 +69,7 @@ public:
 	LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m,
 			Translator t);
 
-	/** A method that converts the LitUnit into a string.
+	/** \brief A method that converts the LitUnit into a string.
 	 *
 	 *  The author and meter are saved on the first two lines of the string, then the PoeticDevices are saved to the next lines, then the Translator is saved. The PoeticDevices and Translator are converted to strings by their own intoString() method.
 	 *

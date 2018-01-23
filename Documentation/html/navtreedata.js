@@ -23,7 +23,10 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "LatinStudyTool", "index.html", [
+  [ "Latin Study Tool", "index.html", [
+    [ "LitNames", "md__e_1__git_hub__senior-_i_a__example__files__lit_names.html", null ],
+    [ "title", "md__e_1__git_hub__senior-_i_a__example__files_title.html", null ],
+    [ "titlePD", "md__e_1__git_hub__senior-_i_a__example__files_title_p_d.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
