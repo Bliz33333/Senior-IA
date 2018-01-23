@@ -67,7 +67,9 @@ public:
 	void nextLatin();
 
 	/**
+	 *  \brief Advances the English that the user can read.
 	 *
+	 *  Increments englishCounter and updates the DAE to show the next MeaningUnit's English (text.at(englishCounter).english).
 	 */
 	void nextEnglish();
 

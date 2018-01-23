@@ -16,18 +16,26 @@
 #include <string>
 
 /**
- *
+ *  An object that holds a 'unit' of Latin (a sentence, line, or couplet), as well as its English translation.
  */
 class MeaningUnit
 {
 public:
 	/**
-	 *
+	 *  The string that holds the Latin.
 	 */
-	std::string latin, english;
+	std::string latin;
 
 	/**
+	 *  The string that holds the English.
+	 */
+	std::string english;
+
+	/**
+	 *  The constructor, simply copies latinInput to latin and englishInput to english.
 	 *
+	 *  \param latinInput The latin.
+	 *  \param englishInput The english.
 	 */
 	MeaningUnit(std::string latinInput, std::string englishInput);
 
