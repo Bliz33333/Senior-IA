@@ -10,7 +10,7 @@ std::string LitUnit::intoString()
 {
 	std::string s = "";
 
-	s += author + "\n" + meter + "\n";
+	s += author + "\n" + meter + "\n" +"\n";
 	for (unsigned int i = 0; i < devices.size(); i++)
 	{
 		s += devices.at(i).intoString() + "\n";

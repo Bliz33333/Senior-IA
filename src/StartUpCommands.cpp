@@ -8,8 +8,7 @@
 #include "StartUpCommands.h"
 #include <iostream> //TODO remove
 
-std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, //TODO other meters
-		int numUnits)
+std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile,	int numUnits) //TODO other meters
 {
 	std::vector<MeaningUnit> units;
 	std::string litline;
@@ -41,7 +40,7 @@ std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, 
 
 	}
 
-	if (meter == "Prose")
+	if (meter == "Prose" || meter == "Hendecasyllabic" || meter == "DactylicHexameter")
 	{
 		std::string english;
 		std::string latin;
@@ -63,6 +62,7 @@ std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile, 
 		}
 
 	}
+
 	return units;
 }
 
@@ -103,8 +103,7 @@ std::vector<PoeticDevice> readInDevices(std::string title)
 	return p;
 }
 
-void startupLit(std::map<std::string, class LitUnit>& IBmap,
-		std::map<std::string, class LitUnit>& APmap)
+void startupLit(std::map<std::string, class LitUnit>& IBmap, std::map<std::string, class LitUnit>& APmap)
 {
 	int numIB = 0;
 	int numAP = 0;
@@ -140,10 +139,9 @@ void startupLit(std::map<std::string, class LitUnit>& IBmap,
 		getline(litfile, litline);
 		int numUnits = std::stoi(litline);
 
-		IBmap.insert(
-				{ title, LitUnit(readInDevices(title), author, meter,
-						Translator(readInLines(meter, litfile, numUnits))) });
+		IBmap.insert({ title, LitUnit(readInDevices(title), author, meter, Translator(readInLines(meter, litfile, numUnits))) });
 	}
+
 	for (int i = 0; i < numAP; i++)
 	{
 		getline(infile, line);
@@ -162,12 +160,10 @@ void startupLit(std::map<std::string, class LitUnit>& IBmap,
 		getline(litfile, litline);
 		int numUnits = std::stoi(litline);
 
-		APmap.insert(
-				{ title, LitUnit(readInDevices(title), author, meter,
-						Translator(readInLines(meter, litfile, numUnits))) });
+		APmap.insert({ title, LitUnit(readInDevices(title), author, meter, Translator(readInLines(meter, litfile, numUnits))) });
 	}
 // TODO remove
-//	std::cout << IBmap.at("Elegies1.1").intoString();
+//	std::cout << IBmap.at("Elegies3.23").intoString();
 }
 
 void startupStages() //todo finish

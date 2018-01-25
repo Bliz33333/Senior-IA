@@ -41,7 +41,7 @@ public:
 
 	/** \brief A method that converts the MeaningUnit into a string.
 	 *
-	 *  The methods creates the string by joining the latin string, a newline, the english string, and another newline.
+	 *  The methods creates the string by joining the latin string, a blank line, the english string, and another blank line.
 	 */
 	std::string intoString();
 };

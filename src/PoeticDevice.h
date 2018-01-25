@@ -55,7 +55,7 @@ public:
 
 	/** \brief A method that converts the PoeticDevice into a string.
 	 *
-	 *  The methods creates the string by joining the count, a newline, the type string, a newline, the description string, and another newline.
+	 *  The methods creates the string by joining the count, a blank line, the type string, a blank line, the description string, and another blank line.
 	 */
 	std::string intoString();
 };
