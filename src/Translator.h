@@ -16,6 +16,7 @@
 #include "MeaningUnit.h"
 
 #include <vector>
+#include <sstream>
 
 /**
  *  \brief The object that deals with displaying and keeping track of the Latin/English for a literature.
@@ -52,6 +53,9 @@ public:
 	 */
 	int latinCounter;
 
+	unsigned int cutPercent;
+	unsigned int cutLength;
+
 	/**
 	 *  \brief Constructs a Translator from a MeaningUnit array.
 	 *
@@ -72,6 +76,8 @@ public:
 	 *  Increments englishCounter and updates the DAE to show the next MeaningUnit's English (text.at(englishCounter).english).
 	 */
 	void nextEnglish();
+
+	void nextWCLatin();
 
 	/** \brief A method that converts the Translator into a string.
 	 *

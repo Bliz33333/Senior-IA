@@ -84,6 +84,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			(HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE),
 			NULL);
 
+	HWND inputBox = CreateWindow(TEXT("Edit"), TEXT("test"), WS_CHILD | WS_VISIBLE | WS_BORDER, 10, 110, 140, 20, hwnd, NULL, NULL, NULL);
+
+	HWND outputBox = CreateWindow(TEXT("Edit"), TEXT("test"), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 10, 130, 140, 20, hwnd, NULL, NULL, NULL);
+
 	ShowWindow(hwnd, nCmdShow);
 	UpdateWindow(hwnd);
 
