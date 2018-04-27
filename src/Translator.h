@@ -77,7 +77,8 @@ public:
 	 */
 	void nextEnglish();
 
-	void nextWCLatin();
+	void nextWCEnglish();
+	void toCleanEnglish();
 
 	/** \brief A method that converts the Translator into a string.
 	 *

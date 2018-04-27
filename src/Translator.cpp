@@ -17,43 +17,65 @@ void Translator::nextLatin()
 	DAL += text.at(latinCounter).latin + "\n";
 }
 
-void Translator::nextWCLatin()
+void Translator::nextWCEnglish()
 {
-	latinCounter++;
+	englishCounter++;
 
 	std::string copyText = "";
-	copyText += text.at(latinCounter).latin;
+	copyText += text.at(englishCounter).english;
 
 	std::string cutText = "";
 
 	while (copyText != "")
 	{
 		std::string line;
-		std::getline(copyText, line);
+		std::istringstream iss(line);
+		std::string word;
 
-		if(line.at(0) == "\t")
+		std::getline(iss, line);
+
+		if (line[0] == '\t')
 		{
 			cutText += "\t";
 		}
 
-		std::istringstream iss(line);
-		std::string word;
 		while (iss >> word)
 		{
-			if(rand() % 100 > cutPercent || word.length() <= cutLength)
+			if ((unsigned int) rand() % 100 > cutPercent || (unsigned int) word.length() <= cutLength)
 			{
 				cutText += " " + word + " ";
+			}
+			else
+			{
+				cutText += " ";
+				for (unsigned int i = 0; i < word.length(); i++)
+				{
+					cutText += "_";
+				}
+				cutText += " ";
 			}
 		}
 		cutText += "\n";
 	}
 
+	DAE += cutText + "\n";
+
+}
+
+void Translator::toCleanEnglish()
+{
+	int count = englishCounter;
+	DAE = "";
+	for(englishCounter = -1; englishCounter < count;)
+	{
+		nextEnglish();
+	}
 }
 
 void Translator::nextEnglish()
 {
-	latinCounter++;
-	DAL += text.at(latinCounter).latin + "\n";
+	englishCounter++;
+	DAL += text.at(englishCounter).english + "\n";
 }
 
 std::string Translator::intoString()
