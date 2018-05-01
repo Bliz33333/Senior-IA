@@ -69,6 +69,8 @@ public:
 	LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m,
 			Translator t);
 
+	LitUnit();
+
 	/** \brief A method that converts the LitUnit into a string.
 	 *
 	 *  The author and meter are written to the first two lines of the string, the next line is blank, then the PoeticDevices are written to the next lines, then the Translator is written. The PoeticDevices and Translator are converted to strings by their own intoString() method.

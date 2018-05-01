@@ -11,6 +11,11 @@ Translator::Translator(std::vector<MeaningUnit> t) :
 {
 }
 
+Translator::Translator()
+{
+	assert(0 == 1);
+}
+
 void Translator::nextLatin()
 {
 	latinCounter++;
@@ -76,6 +81,14 @@ void Translator::nextEnglish()
 {
 	englishCounter++;
 	DAL += text.at(englishCounter).english + "\n";
+}
+
+void Translator::reset()
+{
+	DAE = "";
+	DAL = "";
+	englishCounter = -1;
+	latinCounter = -1;
 }
 
 std::string Translator::intoString()

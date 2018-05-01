@@ -63,6 +63,8 @@ public:
 	 */
 	Translator(std::vector<MeaningUnit> t);
 
+	Translator();
+
 	/**
 	 *  \brief Advances the Latin that the user can read.
 	 *
@@ -79,6 +81,8 @@ public:
 
 	void nextWCEnglish();
 	void toCleanEnglish();
+
+	void reset();
 
 	/** \brief A method that converts the Translator into a string.
 	 *

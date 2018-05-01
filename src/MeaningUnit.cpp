@@ -12,6 +12,11 @@ MeaningUnit::MeaningUnit(std::string latinInput, std::string englishInput) :
 {
 }
 
+MeaningUnit::MeaningUnit()
+{
+	assert(0 == 1);
+}
+
 std::string MeaningUnit::intoString()
 {
 	return latin + "\n" + english + "\n";

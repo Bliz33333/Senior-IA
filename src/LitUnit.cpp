@@ -1,9 +1,15 @@
 #include "LitUnit.h"
 
+
 LitUnit::LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m,
 		Translator t) :
 		devices(d), author(a), meter(m), translator(t)
 {
+}
+
+LitUnit::LitUnit()
+{
+	assert(0 == 1);
 }
 
 std::string LitUnit::intoString()

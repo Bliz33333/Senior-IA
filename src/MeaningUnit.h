@@ -14,6 +14,7 @@
 #define SRC_MEANINGUNIT_H_
 
 #include <string>
+#include <assert.h> //TODO remove
 
 /**
  *  \brief An object that holds a 'unit' of Latin (a sentence, line, couplet, etc.), as well as its English translation.
@@ -38,6 +39,8 @@ public:
 	 *  \param englishInput The english.
 	 */
 	MeaningUnit(std::string latinInput, std::string englishInput);
+
+	MeaningUnit();
 
 	/** \brief A method that converts the MeaningUnit into a string.
 	 *
