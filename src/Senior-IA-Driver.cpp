@@ -7,7 +7,8 @@ std::map<std::string, class LitUnit> IBmap;
 std::map<std::string, class LitUnit> APmap;
 
 int goButtonID = 1101;
-int nextButtonID = 1102;
+int nextButtonID = 1102; //change
+
 HWND englishBox;
 HWND latinBox;
 HWND litSelect;
