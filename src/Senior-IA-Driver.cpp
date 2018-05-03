@@ -6,8 +6,8 @@
 std::map<std::string, class LitUnit> IBmap;
 std::map<std::string, class LitUnit> APmap;
 
-int goButtonID;
-int nextButtonID;
+int goButtonID = 1101;
+int nextButtonID = 1102;
 HWND englishBox;
 HWND latinBox;
 HWND litSelect;
@@ -33,9 +33,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			break;
-		case BN_CLICKED:
-			if(LOWORD(msg) == nextButtonID)
+		case WM_COMMAND:
+
+			if(LOWORD(msg) == nextButtonID || LOWORD(wParam) == nextButtonID)
 			{
+				MessageBox(NULL, "We got to the next button!", "good!",	MB_ICONEXCLAMATION | MB_OK); //TODO remove
+
 				if(counter % 2 == 0)
 				{
 					c_view->translator.nextLatin();
@@ -50,8 +53,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 					SetWindowText(englishBox, c_view->translator.DAE.c_str());
 				}
 			}
-			else
+			else if(LOWORD(msg) == goButtonID || LOWORD(wParam) == goButtonID)
 			{
+				MessageBox(NULL, "We got to the go button!", "good!",	MB_ICONEXCLAMATION | MB_OK); //TODO remove
+
 				c_view->translator.reset();
 				unsigned int selected = ComboBox_GetCurSel(litSelect);
 				if(selected < IBindices.size())
@@ -121,7 +126,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	HWND goButton = CreateWindow(
 			"BUTTON",  // Predefined class; Unicode assumed
 			"Go",// Button text
-			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,// Styles
+			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON | BS_NOTIFY | BS_PUSHBUTTON,// Styles
 			10,// x position
 			100,// y position
 			50,// Button width
@@ -131,12 +136,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			(HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE),
 			NULL);
 
-	goButtonID = GetDlgCtrlID(goButton);
+	SendMessage(goButton, (UINT) DM_SETDEFID, (WPARAM) goButtonID, 0);
+	goButtonID = GetDlgCtrlID(goButton); //TODO remove
 
 	HWND nextButton = CreateWindow(
 			"BUTTON",  // Predefined class; Unicode assumed
 			"Next",// Button text
-			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,// Styles
+			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_NOTIFY | BS_PUSHBUTTON,// Styles
 			508,// x position
 			561,// y position
 			92,// Button width
@@ -146,11 +152,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			(HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE),
 			NULL);
 
-	nextButtonID = GetDlgCtrlID(nextButton);
+	SendMessage(nextButton, (UINT) DM_SETDEFID, (WPARAM) nextButtonID, 0);
+	nextButtonID = GetDlgCtrlID(nextButton); //TODO remove
 
-	englishBox = CreateWindow(TEXT("Edit"), TEXT("test"), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 175, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
+	englishBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(goButtonID).c_str()), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 175, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
 
-	latinBox = CreateWindow(TEXT("Edit"), TEXT("test"), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 600, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
+	latinBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(nextButtonID).c_str()), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 600, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
 
 	litSelect = CreateWindow(TEXT("ComboBox"), TEXT(""),
 			CBS_DROPDOWN | CBS_HASSTRINGS | WS_VSCROLL | WS_CHILD | WS_OVERLAPPED | WS_VISIBLE,
@@ -167,6 +174,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		APindices.push_back(it->first);
 		SendMessage(litSelect, (UINT) CB_ADDSTRING, (WPARAM) 0, (LPARAM) it->first.c_str());
 	}
+
+	MessageBox(NULL, "We got this far!", "good!",
+			MB_ICONEXCLAMATION | MB_OK); //TODO remove
 
 	ShowWindow(hwnd, nCmdShow);
 	UpdateWindow(hwnd);
