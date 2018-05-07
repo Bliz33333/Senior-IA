@@ -1,27 +1,24 @@
 #include "StartUpCommands.h"
 #include <windows.h>
 #include <windowsx.h>
-#include <iostream> //TODO remove
 
 std::map<std::string, class LitUnit> IBmap;
 std::map<std::string, class LitUnit> APmap;
 
-int goButtonID = 1101;
-int nextButtonID = 1102; //change
+#define BTN_GO		1101
+#define BTN_NEXT	1102
 
 HWND englishBox;
 HWND latinBox;
 HWND litSelect;
-LitUnit * c_view;
-std::vector<std::string> IBindices = {};
-std::vector<std::string> APindices = {};
+LitUnit * c_view = NULL;
+std::vector<std::string> IBindices =
+		{ };
+std::vector<std::string> APindices =
+		{ };
 int counter = 0;
 
 const char g_szClassName[] = "myWindowClass";
-
-//todo error handling
-//todo remove extra "see" commands
-//todo document hidden methods in startup commands
 
 // Step 4: the Window Procedure
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -35,42 +32,57 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			PostQuitMessage(0);
 			break;
 		case WM_COMMAND:
-
-			if(LOWORD(msg) == nextButtonID || LOWORD(wParam) == nextButtonID)
+			switch (HIWORD(wParam))
 			{
-				MessageBox(NULL, "We got to the next button!", "good!",	MB_ICONEXCLAMATION | MB_OK); //TODO remove
+				case BN_CLICKED:
+					if (LOWORD(msg) == BTN_NEXT || LOWORD(wParam) == BTN_NEXT)
+					{
+						if (counter % 2 == 0)
+						{
+							c_view->translator.nextLatin();
+							c_view->translator.nextWCEnglish();
 
-				if(counter % 2 == 0)
-				{
-					c_view->translator.nextLatin();
-					c_view->translator.nextWCEnglish();
+							MessageBox(NULL, "We got past the updates!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
 
-					SetWindowText(englishBox, c_view->translator.DAE.c_str());
-					SetWindowText(latinBox, c_view->translator.DAL.c_str());
-				}
-				else
-				{
-					c_view->translator.toCleanEnglish();
-					SetWindowText(englishBox, c_view->translator.DAE.c_str());
-				}
-			}
-			else if(LOWORD(msg) == goButtonID || LOWORD(wParam) == goButtonID)
-			{
-				MessageBox(NULL, "We got to the go button!", "good!",	MB_ICONEXCLAMATION | MB_OK); //TODO remove
+							SetWindowText(englishBox, c_view->translator.DAE.c_str());
+							SetWindowText(latinBox, c_view->translator.DAL.c_str());
 
-				c_view->translator.reset();
-				unsigned int selected = ComboBox_GetCurSel(litSelect);
-				if(selected < IBindices.size())
-				{
-					c_view = &IBmap[IBindices[selected]];
-				}
-				else
-				{
-					c_view = &APmap[APindices[selected-IBindices.size()]];
-				}
-				SetWindowText(englishBox, c_view->translator.DAE.c_str());
-				SetWindowText(latinBox, c_view->translator.DAL.c_str());
-				counter = 0;
+							MessageBox(NULL, "We got past the setwindowtext!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
+
+							char buf[20] =
+									{ 0 }; //TODO remove
+							GetWindowText(englishBox, buf, 15); //TODO remove
+						}
+						else
+						{
+							c_view->translator.toCleanEnglish();
+							SetWindowText(englishBox, c_view->translator.DAE.c_str());
+						}
+					}
+					else if (LOWORD(msg) == BTN_GO || LOWORD(wParam) == BTN_GO)
+					{
+						if (c_view != NULL)
+						{
+							c_view->translator.reset();
+						}
+
+						unsigned int selected = ComboBox_GetCurSel(litSelect);
+
+						if (selected < IBindices.size())
+						{
+							c_view = &IBmap[IBindices[selected]];
+						}
+						else
+						{
+							c_view = &APmap[APindices[selected - IBindices.size()]];
+						}
+
+						SetWindowText(englishBox, c_view->translator.DAE.c_str());
+						SetWindowText(englishBox, c_view->author.c_str()); //TODO remove
+						SetWindowText(latinBox, c_view->translator.DAL.c_str());
+						counter = 0;
+					}
+					break;
 			}
 			break;
 		default:
@@ -133,12 +145,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			50,// Button width
 			25,// Button height
 			hwnd,// Parent window
-			NULL,// No menu.
+			(HMENU) BTN_GO,// No menu.
 			(HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE),
 			NULL);
 
-	SendMessage(goButton, (UINT) DM_SETDEFID, (WPARAM) goButtonID, 0);
-	goButtonID = GetDlgCtrlID(goButton); //TODO remove
+	SendMessage(goButton, (UINT) DM_SETDEFID, (WPARAM) BTN_GO, 0);
 
 	HWND nextButton = CreateWindow(
 			"BUTTON",  // Predefined class; Unicode assumed
@@ -149,16 +160,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			92,// Button width
 			25,// Button height
 			hwnd,// Parent window
-			NULL,// No menu.
+			(HMENU) BTN_NEXT,// No menu.
 			(HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE),
 			NULL);
 
-	SendMessage(nextButton, (UINT) DM_SETDEFID, (WPARAM) nextButtonID, 0);
-	nextButtonID = GetDlgCtrlID(nextButton); //TODO remove
+	SendMessage(nextButton, (UINT) DM_SETDEFID, (WPARAM) BTN_NEXT, 0);
 
-	englishBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(goButtonID).c_str()), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 175, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
+	englishBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(BTN_GO).c_str()), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 175, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
 
-	latinBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(nextButtonID).c_str()), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 600, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
+	latinBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(BTN_NEXT).c_str()), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 600, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
 
 	litSelect = CreateWindow(TEXT("ComboBox"), TEXT(""),
 			CBS_DROPDOWN | CBS_HASSTRINGS | WS_VSCROLL | WS_CHILD | WS_OVERLAPPED | WS_VISIBLE,
@@ -176,8 +186,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		SendMessage(litSelect, (UINT) CB_ADDSTRING, (WPARAM) 0, (LPARAM) it->first.c_str());
 	}
 
-	MessageBox(NULL, "We got this far!", "good!",
-			MB_ICONEXCLAMATION | MB_OK); //TODO remove
+//	MessageBox(NULL, "We got this far!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
 
 	ShowWindow(hwnd, nCmdShow);
 	UpdateWindow(hwnd);
@@ -190,6 +199,4 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	}
 	return Msg.wParam;
 }
-
-
 
