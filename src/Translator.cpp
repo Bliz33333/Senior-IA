@@ -11,7 +11,8 @@ Translator::Translator(std::vector<MeaningUnit> t) :
 {
 }
 
-Translator::Translator()
+Translator::Translator():
+				text(), DAL(""), DAE(""), englishCounter(-1), latinCounter(-1), cutPercent(33), cutLength(3)
 {
 	assert(0 == 1);
 }

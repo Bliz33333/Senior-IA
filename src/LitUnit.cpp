@@ -7,7 +7,7 @@ LitUnit::LitUnit(std::vector<PoeticDevice> d, std::string a, std::string m,
 {
 }
 
-LitUnit::LitUnit()
+LitUnit::LitUnit() : author("This should never appear. it means the default litunit constructor was used")
 {
 	assert(0 == 1);
 }

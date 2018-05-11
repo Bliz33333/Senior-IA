@@ -40,6 +40,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 						if (counter % 2 == 0)
 						{
 							c_view->translator.nextLatin();
+
+							MessageBox(NULL, "We got past the first update!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
+
 							c_view->translator.nextWCEnglish();
 
 							MessageBox(NULL, "We got past the updates!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
