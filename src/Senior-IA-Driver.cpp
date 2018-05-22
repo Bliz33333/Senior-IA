@@ -1,6 +1,7 @@
 #include "StartUpCommands.h"
 #include <windows.h>
 #include <windowsx.h>
+#include <climits>
 
 std::map<std::string, class LitUnit> IBmap;
 std::map<std::string, class LitUnit> APmap;
@@ -35,31 +36,26 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			switch (HIWORD(wParam))
 			{
 				case BN_CLICKED:
-					if (LOWORD(msg) == BTN_NEXT || LOWORD(wParam) == BTN_NEXT)
+					if (LOWORD(msg) == BTN_NEXT || LOWORD(wParam) == BTN_NEXT) //TODO word cut instead of what is now
 					{
-						if (counter % 2 == 0)
+						if(c_view != NULL)
 						{
-							c_view->translator.nextLatin();
+							if (counter % 2 == 0)
+							{
+								c_view->translator.nextLatin();
+								SetWindowText(latinBox, c_view->translator.DAL.c_str());
+								counter++;
 
-							MessageBox(NULL, "We got past the first update!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
+								SendMessage(latinBox, (UINT) EM_LINESCROLL, (WPARAM) 0, (LPARAM) INT_MAX);
+							}
+							else
+							{
+								c_view->translator.nextEnglish();
+								SetWindowText(englishBox, c_view->translator.DAE.c_str());
+								counter++;
 
-							c_view->translator.nextWCEnglish();
-
-							MessageBox(NULL, "We got past the updates!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
-
-							SetWindowText(englishBox, c_view->translator.DAE.c_str());
-							SetWindowText(latinBox, c_view->translator.DAL.c_str());
-
-							MessageBox(NULL, "We got past the setwindowtext!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
-
-							char buf[20] =
-									{ 0 }; //TODO remove
-							GetWindowText(englishBox, buf, 15); //TODO remove
-						}
-						else
-						{
-							c_view->translator.toCleanEnglish();
-							SetWindowText(englishBox, c_view->translator.DAE.c_str());
+								SendMessage(englishBox, (UINT) EM_LINESCROLL, (WPARAM) 0, (LPARAM) INT_MAX);
+							}
 						}
 					}
 					else if (LOWORD(msg) == BTN_GO || LOWORD(wParam) == BTN_GO)
@@ -81,7 +77,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 						}
 
 						SetWindowText(englishBox, c_view->translator.DAE.c_str());
-						SetWindowText(englishBox, c_view->author.c_str()); //TODO remove
 						SetWindowText(latinBox, c_view->translator.DAL.c_str());
 						counter = 0;
 					}
@@ -129,7 +124,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	hwnd = CreateWindowEx(
 	WS_EX_CLIENTEDGE, g_szClassName, "Latin Study Tool",
 	WS_OVERLAPPEDWINDOW,
-	CW_USEDEFAULT, CW_USEDEFAULT, 1000, 750,
+	CW_USEDEFAULT, CW_USEDEFAULT, 1300, 750,
 	NULL, NULL, hInstance, NULL);
 
 	if (hwnd == NULL)
@@ -158,8 +153,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			"BUTTON",  // Predefined class; Unicode assumed
 			"Next",// Button text
 			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_NOTIFY | BS_PUSHBUTTON,// Styles
-			508,// x position
-			561,// y position
+			10,// x position
+			140,// y position
 			92,// Button width
 			25,// Button height
 			hwnd,// Parent window
@@ -169,9 +164,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	SendMessage(nextButton, (UINT) DM_SETDEFID, (WPARAM) BTN_NEXT, 0);
 
-	englishBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(BTN_GO).c_str()), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 175, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
+	englishBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(BTN_GO).c_str()), WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_BORDER | ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY, 175, 60, 600, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
 
-	latinBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(BTN_NEXT).c_str()), WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_READONLY, 600, 60, 333, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
+	latinBox = CreateWindow(TEXT("Edit"), TEXT(std::to_string(BTN_NEXT).c_str()), WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_BORDER | ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY, 867, 60, 400, 500, hwnd, NULL, (HINSTANCE)GetWindowLong(hwnd, GWL_HINSTANCE), NULL);
 
 	litSelect = CreateWindow(TEXT("ComboBox"), TEXT(""),
 			CBS_DROPDOWN | CBS_HASSTRINGS | WS_VSCROLL | WS_CHILD | WS_OVERLAPPED | WS_VISIBLE,
@@ -188,8 +183,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		APindices.push_back(it->first);
 		SendMessage(litSelect, (UINT) CB_ADDSTRING, (WPARAM) 0, (LPARAM) it->first.c_str());
 	}
-
-//	MessageBox(NULL, "We got this far!", "good!", MB_ICONEXCLAMATION | MB_OK); //TODO remove
 
 	ShowWindow(hwnd, nCmdShow);
 	UpdateWindow(hwnd);

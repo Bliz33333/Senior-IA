@@ -20,7 +20,10 @@ Translator::Translator():
 void Translator::nextLatin()
 {
 	latinCounter++;
-	DAL += text.at(latinCounter).latin + "\n";
+	if(latinCounter < text.size())
+	{
+		DAL += text.at(latinCounter).latin + "\r\n\r\n";
+	}
 }
 
 void Translator::nextWCEnglish()
@@ -81,7 +84,11 @@ void Translator::toCleanEnglish()
 void Translator::nextEnglish()
 {
 	englishCounter++;
-	DAL += text.at(englishCounter).english + "\n";
+	if(latinCounter < text.size())
+	{
+
+		DAE += text.at(englishCounter).english + "\r\n\r\n";
+	}
 }
 
 void Translator::reset()

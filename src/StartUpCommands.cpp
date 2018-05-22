@@ -26,12 +26,12 @@ std::vector<MeaningUnit> readInLines(std::string meter, std::ifstream& litfile,	
 			getline(litfile, litline);
 			latin += litline;
 			getline(litfile, litline);
-			latin += "\n" + litline;
+			latin += "\r\n" + litline;
 
 			getline(litfile, litline);
 			english += litline;
 			getline(litfile, litline);
-			english += +"\n" + litline;
+			english += +"\r\n" + litline;
 			getline(litfile, litline);
 			MeaningUnit m = MeaningUnit(latin, english);
 
