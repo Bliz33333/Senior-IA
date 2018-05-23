@@ -67,18 +67,22 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 						unsigned int selected = ComboBox_GetCurSel(litSelect);
 
-						if (selected < IBindices.size())
+						if(selected != CB_ERR)
 						{
-							c_view = &IBmap[IBindices[selected]];
-						}
-						else
-						{
-							c_view = &APmap[APindices[selected - IBindices.size()]];
+							if (selected < IBindices.size())
+							{
+								c_view = &IBmap[IBindices[selected]];
+							}
+							else
+							{
+								c_view = &APmap[APindices[selected - IBindices.size()]];
+							}
+
+							SetWindowText(englishBox, c_view->translator.DAE.c_str());
+							SetWindowText(latinBox, c_view->translator.DAL.c_str());
+							counter = 0;
 						}
 
-						SetWindowText(englishBox, c_view->translator.DAE.c_str());
-						SetWindowText(latinBox, c_view->translator.DAL.c_str());
-						counter = 0;
 					}
 					break;
 			}
